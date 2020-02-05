@@ -1,0 +1,60 @@
+div.home--chat--room {
+    height: 100vh;
+}
+
+div.home--chat--room  h1{
+    margin-bottom: 30px;
+}
+
+section.chat--section div.chat--section__messages {
+    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    height: 60vh;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+section.chat--section div.chat--section__messages div.message {
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    width: 300px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+section.chat--section div.chat--section__messages div.message div.username {
+    margin-bottom: 20px;
+}
+
+div.chat--section__button--container {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.chat--section__button--container input {
+    flex: 0 1 80%;
+    font-family: 'Muli', sans-serif, arial;
+    font-size: 18px;
+    padding: 10px 15px;
+}
+
+button.chat--section__send {
+    flex: 0 1 15%;
+    padding: 15px 20px;
+    width: 120px;
+    border-radius: 4px;
+}
+
+div.chat--section__nickname--container {
+    margin-top: 20px;
+}
+
+div.chat--section__nickname--container span {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+div.chat--section__nickname--container input {
+    padding: 10px;
+    font-size: 16px;
+}

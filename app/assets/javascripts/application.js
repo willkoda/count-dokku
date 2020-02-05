@@ -19,3 +19,41 @@
 //         alert("It's over Anakin, I have the high ground.")
 //     },2000)
 // }).call(this);
+
+(function() {
+    (function init() {
+        HTMLElement.prototype.event_handler = function() {
+            var controller = this.dataset.controller;
+            var handler = this.dataset.handler;
+            if (!controller || !handler) return;
+            if (!App.scripts[controller][handler]) throw new Error(handler + ' is not defined in ' + controller);
+            
+            App.scripts[controller][handler].call(this);
+        }
+    }).call(this);
+
+    function load() {
+        for (var prop in App.scripts) {
+            if (App.scripts.hasOwnProperty(prop)) {
+                App.scripts[prop].call(App.scripts[prop]);
+            }
+        }
+    }
+
+    function click() {
+        if (event.target.tagName == 'INPUT') return;
+        if (event.target.tagName == 'SELECT') return;
+        event.target.event_handler();
+    }
+
+    function keyup() {
+        if (event.target.tagName != 'INPUT') return;
+        if (event.keyCode === 13) {
+            event.target.event_handler();
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', load);
+    window.addEventListener('keyup', keyup)
+    document.addEventListener('click', click);
+}).call(this);

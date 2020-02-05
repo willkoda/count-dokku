@@ -1,0 +1,35 @@
+<div class="container-element home--chat--room">
+    <h1>Public Chat Room</h1>
+    <section class="chat--section">
+        <div class="chat--section__messages">
+            <%# <div class="message">
+                <div class="username">Sender: Monk</div>
+                <div class="content">Message: noice noice noice noice noice</div>
+            </div> %>
+        </div>
+
+        <div class="chat--section__button--container">
+            <input 
+                type="text" 
+                id="chat-message"
+                data-controller="chat_room"
+                data-handler="send_message">
+            <button 
+                class="chat--section__send"
+                data-controller="chat_room"
+                data-handler="send_message"
+                >Send</button>
+        </div>
+
+        <div class="chat--section__nickname--container">
+            <label for="nickname">
+                <span>Nicekname</span>
+                <input 
+                    type="text" 
+                    placeholder="Enter Nickname" 
+                    value="Anon" 
+                    id="nickname">
+            </label>
+        </div>
+    </section>
+</div>

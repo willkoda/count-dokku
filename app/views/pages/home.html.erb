@@ -2,6 +2,8 @@
     <h1 class="home--header">Welcome to Count Dokku</h1>
     <div class="add--posts">
         <%= link_to 'Add New Post', new_post_path %>
+        <br>
+        <%= link_to 'Chat Room', chat_room_home_path %>
     </div>
     <section class="posts">
         <% @posts.each do |post| %>
