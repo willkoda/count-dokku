@@ -1,0 +1,29 @@
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Muli', arial, sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    color: var(--dark-text);
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container-element {
+    max-width: 1400px;
+    margin: auto;
+    padding: 60px 40px;
+}

@@ -1,1 +1,17 @@
-<h1>Welcome to count dokku</h1>
+<div class="container-element">
+    <h1 class="home--header">Welcome to Count Dokku</h1>
+    <div class="add--posts">
+        <%= link_to 'Add New Post', new_post_path %>
+    </div>
+    <section class="posts">
+        <% @posts.each do |post| %>
+            <figure class="post--item">
+                <div class="image--container">
+                    <%= image_tag post.image_url %>
+                </div>
+                <figcaption>Caption: <%= post.caption %></figcaption>
+            </figure>
+        <% end %>
+    </section>
+</div>
+

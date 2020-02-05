@@ -1,0 +1,30 @@
+h1.home--header {
+    margin-bottom: 40px;
+}
+
+section.posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-gap: 20px;
+}
+
+div.add--posts {
+    margin-bottom: 30px;
+}
+
+section.posts figure.post--item {
+    padding: 20px;
+    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+section.posts div.image--container {
+    height: 150px;
+    width: 200px;
+    overflow: hidden;
+}
+
+section.posts img {
+    height: auto;
+    width: 100%;
+}

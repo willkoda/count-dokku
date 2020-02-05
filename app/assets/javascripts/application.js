@@ -14,8 +14,8 @@
 //= require activestorage
 //= require_tree .
 
-(function(){
-    setTimeout(function(){
-        alert("It's over Anakin, I have the high ground.")
-    },2000)
-}).call(this);
+// (function() {
+//     setTimeout(function(){
+//         alert("It's over Anakin, I have the high ground.")
+//     },2000)
+// }).call(this);

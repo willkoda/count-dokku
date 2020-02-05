@@ -1,0 +1,16 @@
+<div class="container-element">
+    <h1>Add New Post</h1>
+    <section class="add--post--section">
+        <%= form_for @post, url: create_post_path do |f| %>
+            <label for="post_caption">
+                <span>Caption: </span>
+                <%= f.text_field :caption %>
+            </label>
+            <label for="post_image">
+                <span>Image: </span>
+                <%= f.file_field :image %>
+            </label>
+            <%= f.submit 'Submit' %>
+        <% end %>
+    </section>
+</div>
