@@ -1,6 +1,6 @@
 App.scripts.chat_room = function lecture_schedule_group()  {
     // var sock = new WebSocket('ws://localhost:3000/cable');
-    var sock = new WebSocket('ws://192.168.0.101:3000/cable');
+    var sock = new WebSocket('ws://157.245.159.121/cable');
     sock.onopen = () => {
         var sub = JSON.stringify({"command" : "subscribe", "identifier" : JSON.stringify({
             "channel": "ChatRoomChannel"})});    
