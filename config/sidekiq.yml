@@ -1,0 +1,16 @@
+:concurrency: 5
+:max_retries: 0
+development:
+  :logfile: './log/sidekiq_development.log'
+  :verbose: false
+  :concurrency: 5
+  :max_retries: 0
+production:
+  :logfile: './log/sidekiq_production.log'
+  :verbose: false
+  :pidfile: ./tmp/pids/sidekiq.pid
+  :concurrency: 5
+  :max_retries: 0
+:queues:
+  - default
+  - mailers

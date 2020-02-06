@@ -9,14 +9,9 @@ class ChatRoomChannel < ApplicationCable::Channel
 
     def chat(data)
         data = JSON.parse(data['content'])
-        ActionCable.server.broadcast(
-            "chat_room",
-            type:  'chat_broadcast',
-            data: {
-                message: data['message'],
-                sender: data['sender'],
-                sender_id: data['sender_id']
-            }
-        )
+        message = data['message']
+        sender = data['sender']
+        sender_id = data['sender_id']
+        ChatRoomWorker.perform_async(message, sender, sender_id)
     end
 end
