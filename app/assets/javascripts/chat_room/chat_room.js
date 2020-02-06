@@ -20,6 +20,7 @@ App.scripts.chat_room = function lecture_schedule_group()  {
 
     const Chat = (function() {
         const dom_parser = new DOMParser();
+        const sender_id = Math.random();
 
         let element = {
             chat_input: document.querySelector('#chat-message'),
@@ -31,7 +32,8 @@ App.scripts.chat_room = function lecture_schedule_group()  {
             send_message: function() {
                 var content = {
                     message: element.chat_input.value,
-                    sender: element.sender.value
+                    sender: element.sender.value,
+                    sender_id: sender_id
                 }
             
                 var data = JSON.stringify({
@@ -57,7 +59,9 @@ App.scripts.chat_room = function lecture_schedule_group()  {
                 let doc = dom_parser.parseFromString(template, 'text/html');
                 element.chat_messages.appendChild(doc.body.firstChild);
 
-                element.chat_input.value = '';
+                if (data.sender_id == sender_id) {
+                    element.chat_input.value = '';
+                }
             }
         }
     }).call(this);

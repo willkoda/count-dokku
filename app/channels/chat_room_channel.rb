@@ -14,7 +14,8 @@ class ChatRoomChannel < ApplicationCable::Channel
             type:  'chat_broadcast',
             data: {
                 message: data['message'],
-                sender: data['sender']
+                sender: data['sender'],
+                sender_id: data['sender_id']
             }
         )
     end
