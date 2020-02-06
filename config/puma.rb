@@ -9,8 +9,6 @@ workers 2
 
 threads 1, 2
 
-port ENV['PORT'] || 3000
-
 preload_app!
 
 rackup      DefaultRackup
