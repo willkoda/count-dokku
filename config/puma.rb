@@ -9,26 +9,18 @@ workers 2
 
 threads 1, 2
 
-# Specifies the `port` that Puma will listen on to receive requests; default is 3000.
-#
-port        ENV.fetch("PORT") { 3000 }
+port ENV['PORT'] || 3000
 
-app_dir = File.expand_path("../..", __FILE__)
-shared_dir = "#{app_dir}/tmp"
+preload_app!
 
-rails_env = ENV['RAILS_ENV'] || "development"
-environment rails_env
-
-bind "unix://#{shared_dir}/sockets/puma.sock"
+rackup      DefaultRackup
+port        ENV['PORT']     || 3000
+environment ENV['RACK_ENV'] || 'development'
 
 # Logging
 # stdout_redirect "#{shared_dir}/log/puma.stdout.log", "#{shared_dir}/log/puma.stderr.log", true
 
 # Set master PID and state locations
-pidfile "#{shared_dir}/pids/puma.pid"
-
-state_path "#{shared_dir}/pids/puma.state"
-activate_control_app
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
@@ -46,9 +38,10 @@ activate_control_app
 # preload_app!
 
 on_worker_boot do
-    require "active_record"
-    ActiveRecord::Base.connection.disconnect! rescue ActiveRecord::ConnectionNotEstablished
-    ActiveRecord::Base.establish_connection(YAML.load_file("#{app_dir}/config/database.yml")[rails_env])
+    ActiveRecord::Base.establish_connection
+    # require "active_record"
+    # ActiveRecord::Base.connection.disconnect! rescue ActiveRecord::ConnectionNotEstablished
+    # ActiveRecord::Base.establish_connection(YAML.load_file("#{app_dir}/config/database.yml")[rails_env])
 end
 
 # Allow puma to be restarted by `rails restart` command.
